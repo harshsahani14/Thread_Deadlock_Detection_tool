@@ -1,0 +1,6 @@
+package com.harsh.DDT.scheduler;
+
+
+public class DeadlockScheduler {
+	
+}

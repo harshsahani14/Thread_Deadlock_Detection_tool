@@ -1,0 +1,14 @@
+package com.harsh.DDT.service;
+
+import org.springframework.stereotype.Service;
+
+import com.harsh.DDT.model.RemoteServer;
+
+@Service
+public class DeadlockDetectionService {
+	
+	public boolean checkDeadlock(RemoteServer server) {
+        // For now, return random value (true/false)
+        return false;
+    }
+}
