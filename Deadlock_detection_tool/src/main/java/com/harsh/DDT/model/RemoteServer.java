@@ -1,9 +1,12 @@
 package com.harsh.DDT.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Entity
@@ -19,6 +22,9 @@ public class RemoteServer {
 	 private int port;
 	 private String protocol; // JMX, SSH, API
 	 private boolean isActive;
+	 
+	 @OneToMany
+	 List<Thread> threads;
 	 
 	 @Override
 	public String toString() {

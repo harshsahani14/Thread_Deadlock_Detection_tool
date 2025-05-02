@@ -1,5 +1,0 @@
-package com.harsh.DDT.Scheduler;
-
-public class DeadlockScheduler {
-
-}

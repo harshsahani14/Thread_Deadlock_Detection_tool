@@ -18,7 +18,8 @@ public class ServerThread {
 	 private Long id; 
 	 
 	 public ServerThread( long threadId, String threadName, ThreadStates threadState, 
-			StackTraceElement[] stackTrace, String lockName, String lockOwnerName, long lockOwnerId, long serverId) {
+			StackTraceElement[] stackTrace, String lockName, String lockOwnerName, Long lockOwnerId, Long serverId) {
+		super();
 		this.threadId = threadId;
 		this.threadName = threadName;
 		this.threadState = threadState;

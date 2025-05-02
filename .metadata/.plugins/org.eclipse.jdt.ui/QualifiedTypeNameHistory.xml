@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.harsh.DDT.model.enums.ThreadStates"/>
+    <fullyQualifiedTypeName name="java.lang.Thread.State"/>
+</qualifiedTypeNameHistroy>
