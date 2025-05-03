@@ -9,38 +9,43 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
 @Entity
+@Data
 public class ServerThread {
-
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long id; 
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long threadId;
+	 private ThreadStates threadState;
+	 private List<String> stackTrace;
+	 private String holdingLocks;
+	 private String waitingOn ;
+	 private Long cpuUsage;
 	 
-	 public ServerThread( long threadId, String threadName, ThreadStates threadState, 
-			StackTraceElement[] stackTrace, String lockName, String lockOwnerName, Long lockOwnerId, Long serverId) {
+
+	 
+	@Override
+	public String toString() {
+		return "ServerThread [threadId=" + threadId + ", threadState=" + threadState + ", stackTrace=" + stackTrace
+				+ ", holdingLocks=" + holdingLocks + ", waitingOn=" + waitingOn + ", cpuUsage=" + cpuUsage ;
+	}
+
+
+	public ServerThread(long threadId, ThreadStates threadState, List<String> stackTrace, String holdingLocks,
+			String waitingOn, Long cpuUsage, Long id) {
 		super();
 		this.threadId = threadId;
-		this.threadName = threadName;
 		this.threadState = threadState;
-//		this.isDeadlocked = isDeadlocked;
 		this.stackTrace = stackTrace;
-		this.lockName = lockName;
-		this.lockOwnerName = lockOwnerName;
-		this.lockOwnerId = lockOwnerId;
-		this.serverId = serverId;
+		this.holdingLocks = holdingLocks;
+		this.waitingOn = waitingOn;
+		this.cpuUsage = cpuUsage;
+		
 	}
 
-
-
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 
 	public long getThreadId() {
@@ -53,14 +58,53 @@ public class ServerThread {
 	}
 
 
-	public String getThreadName() {
-		return threadName;
+
+	public List<String> getStackTrace() {
+		return stackTrace;
 	}
 
 
-	public void setThreadName(String threadName) {
-		this.threadName = threadName;
+
+	public void setStackTrace(List<String> stackTrace) {
+		this.stackTrace = stackTrace;
 	}
+
+
+
+	public String getHoldingLocks() {
+		return holdingLocks;
+	}
+
+
+
+	public void setHoldingLocks(String holdingLocks) {
+		this.holdingLocks = holdingLocks;
+	}
+
+
+
+	public String getWaitingOn() {
+		return waitingOn;
+	}
+
+
+
+	public void setWaitingOn(String waitingOn) {
+		this.waitingOn = waitingOn;
+	}
+
+
+
+	public Long getCpuUsage() {
+		return cpuUsage;
+	}
+
+
+
+	public void setCpuUsage(Long cpuUsage) {
+		this.cpuUsage = cpuUsage;
+	}
+
 
 
 	public ThreadStates getThreadState() {
@@ -73,76 +117,7 @@ public class ServerThread {
 	}
 
 
-	public boolean isDeadlocked() {
-		return isDeadlocked;
-	}
 
 
-	public void setDeadlocked(boolean isDeadlocked) {
-		this.isDeadlocked = isDeadlocked;
-	}
-
-
-	public StackTraceElement[] getStackTrace() {
-		return stackTrace;
-	}
-
-
-	public void setStackTrace(StackTraceElement[] stackTrace) {
-		this.stackTrace = stackTrace;
-	}
-
-
-	public String getLockName() {
-		return lockName;
-	}
-
-
-	public void setLockName(String lockName) {
-		this.lockName = lockName;
-	}
-
-
-	public String getLockOwnerName() {
-		return lockOwnerName;
-	}
-
-
-	public void setLockOwnerName(String lockOwnerName) {
-		this.lockOwnerName = lockOwnerName;
-	}
-
-
-	public long getLockOwnerId() {
-		return lockOwnerId;
-	}
-
-
-	public void setLockOwnerId(long lockOwnerId) {
-		this.lockOwnerId = lockOwnerId;
-	}
-
-
-	public Long getServerId() {
-		return serverId;
-	}
-
-
-	public void setServerId(Long serverId) {
-		this.serverId = serverId;
-	}
-
-
-	private long threadId;
-	 private String threadName;
-	 private ThreadStates threadState;
-	 private boolean isDeadlocked;
-	 private StackTraceElement[] stackTrace;
-	 private String lockName;
-	 private String lockOwnerName;
-	 private long lockOwnerId;
-	 
-	 
-	 @ManyToOne
-	 private Long serverId;
+	
 }

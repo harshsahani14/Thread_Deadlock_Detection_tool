@@ -6,6 +6,6 @@ import com.harsh.DDT.model.RemoteServer;
 
 
 @Repository
-public interface RemoteServerRepository extends JpaRepository<RemoteServer,Integer> {
+public interface RemoteServerRepository extends JpaRepository<RemoteServer,Long> {
 
 }

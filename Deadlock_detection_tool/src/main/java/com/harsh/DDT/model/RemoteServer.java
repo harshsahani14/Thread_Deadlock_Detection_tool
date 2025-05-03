@@ -19,24 +19,42 @@ public class RemoteServer {
 
 	 private String name;
 	 private String ipAddress;
-	 private int port;
-	 private String protocol; // JMX, SSH, API
-	 private boolean isActive;
+	 private Integer port; 
 	 
-	 @OneToMany
-	 List<Thread> threads;
+	 private String username;
+	 private String password;
 	 
-	 @Override
-	public String toString() {
-		return "RemoteServer [id=" + id + ", name=" + name + ", ipAddress=" + ipAddress + ", port=" + port
-				+ ", protocol=" + protocol + ", isActive=" + isActive + "]";
+	 
+	 
+	 
+	public String getUsername() {
+		return username;
 	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	@Override
+	public String toString() {
+		return "RemoteServer [id=" + id + ", name=" + name + ", ipAddress=" + ipAddress + ", port=" + port
+				+ ", username=" + username + ", password=" + password + "]";
+	}
+	
 	public String getName() {
 		return this.name;
 	}
@@ -55,19 +73,6 @@ public class RemoteServer {
 	public void setPort(int port) {
 		this.port = port;
 	}
-	public String getProtocol() {
-		return protocol;
-	}
-	public void setProtocol(String protocol) {
-		this.protocol = protocol;
-	}
-	public boolean isActive() {
-		return isActive;
-	}
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
-	}
-	
 	
 	 
 	 
